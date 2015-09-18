@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Swift 中查询数据 | CongYue&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="查询数据
+准备伪代码
+
+123456789/// 加载 Person 对象数组class func loadPersons() -&amp;gt; [Person]? &amp;#123;    // 1. 从数据库获取字典数组    SQLiteManager.sharedManager.execRecordSet(&quot;SELECT id, name, age FROM T_Person;&quot;)    // 2.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift 中查询数据">
+<meta property="og:url" content="http://yoursite.com/2015/09/17/04-load_data/index.html">
+<meta property="og:site_name" content="CongYue's Blog">
+<meta property="og:description" content="查询数据
+准备伪代码
+
+123456789/// 加载 Person 对象数组class func loadPersons() -&amp;gt; [Person]? &amp;#123;    // 1. 从数据库获取字典数组    SQLiteManager.sharedManager.execRecordSet(&quot;SELECT id, name, age FROM T_Person;&quot;)    // 2.">
+<meta property="og:updated_time" content="2015-09-18T13:12:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift 中查询数据">
+<meta name="twitter:description" content="查询数据
+准备伪代码
+
+123456789/// 加载 Person 对象数组class func loadPersons() -&amp;gt; [Person]? &amp;#123;    // 1. 从数据库获取字典数组    SQLiteManager.sharedManager.execRecordSet(&quot;SELECT id, name, age FROM T_Person;&quot;)    // 2.">
+  
+    <link rel="alternative" href="/atom.xml" title="CongYue&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/smile.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">cysummery</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">专注成就品质</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/cysummery" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="/cydeveloper@163.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/JungleTian">JungleTian</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/likumb">Jun Li</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cocoachina.com/">CocoaChina</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://code4app.com/">code4app</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devdiv.com/">开发者社区</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.imooc.com/">慕课网</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">iOS 应用开发者，热爱编程，喜欢技术，标准苹果粉。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">cysummery</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/smile.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">cysummery</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">专注成就品质</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/cysummery" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="/cydeveloper@163.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-04-load_data" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/17/04-load_data/" class="article-date">
+  	<time datetime="2015-09-17T15:00:12.000Z" itemprop="datePublished">2015-09-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Swift 中查询数据
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sql/">sql</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="查询数据">查询数据</h1><ul>
+<li>准备伪代码</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 加载 Person 对象数组</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">loadPersons</span>() -&gt; [<span class="title">Person</span>]? </span>&#123;</span><br><span class="line">    <span class="comment">// 1. 从数据库获取字典数组</span></span><br><span class="line">    <span class="type">SQLiteManager</span>.sharedManager.execRecordSet(<span class="string">"SELECT id, name, age FROM T_Person;"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 遍历数组，字典转模型</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li>在 <code>SQLiteManager</code> 中添加查询语句，准备结果集</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 执行 SQL 返回结果集</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - parameter sql: SQL</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - returns: 字典数组</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">execRecordSet</span><span class="params">(sql: String)</span></span> -&gt; [[<span class="type">String</span>: <span class="type">AnyObject</span>]]? &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. 准备(预编译) SQL</span></span><br><span class="line">    <span class="keyword">var</span> stmt: <span class="type">COpaquePointer</span> = <span class="literal">nil</span></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">        1. 已经打开的数据库句柄</span><br><span class="line">        2. 要执行的 SQL</span><br><span class="line">        3. 以字节为单位的 SQL 最大长度，传入 -1 会自动计算</span><br><span class="line">        4. SQL 语句地址</span><br><span class="line">        5. 未使用的指针地址，通常传入 nil</span><br><span class="line">    */</span></span><br><span class="line">    <span class="keyword">if</span> sqlite3_prepare_v2(db, sql, -<span class="number">1</span>, &amp;stmt, <span class="literal">nil</span>) != <span class="type">SQLITE_OK</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"准备 SQL 失败"</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"OK"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 释放语句</span></span><br><span class="line">    sqlite3_finalize(stmt)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>代码小结</p>
+<ul>
+<li>这一部分的工作可以看作是对字符串的 SQL 语句进行编译，并且检查是否存在语法问题</li>
+<li>编译成功后通过 <code>sqlite3_step</code> 执行 SQL，每执行一次，获取一条记录</li>
+<li>通过 <code>while</code> 循环直至执行完毕</li>
+<li>注意，指令执行完毕后需要释放</li>
+</ul>
+</li>
+<li><p>单步执行</p>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2. 单步执行获取结果集内容</span></span><br><span class="line"><span class="keyword">var</span> index = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> sqlite3_step(stmt) == <span class="type">SQLITE_ROW</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(index++)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>遍历 <code>stmt</code> 中的<code>列数</code>以及每列的<code>列名</code> &amp; <code>数据类型</code></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2. 单步执行获取结果集内容</span></span><br><span class="line"><span class="keyword">while</span> sqlite3_step(stmt) == <span class="type">SQLITE_ROW</span> &#123;</span><br><span class="line">    <span class="comment">// 1&gt; 结果集列数</span></span><br><span class="line">    <span class="keyword">let</span> colCount = sqlite3_column_count(stmt)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2&gt; 遍历每一列</span></span><br><span class="line">    <span class="keyword">for</span> col <span class="keyword">in</span> <span class="number">0</span>..&lt;colCount &#123;</span><br><span class="line">        <span class="keyword">let</span> cName = sqlite3_column_name(stmt, col)</span><br><span class="line">        <span class="keyword">let</span> name = <span class="type">String</span>(<span class="type">CString</span>: cName, encoding: <span class="type">NSUTF8StringEncoding</span>)!</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(name + <span class="string">"\t"</span>, appendNewline: <span class="literal">false</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\n"</span>, appendNewline: <span class="literal">false</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>根据 <code>数据类型</code> 获取数据</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> col <span class="keyword">in</span> <span class="number">0</span>..&lt;colCount &#123;</span><br><span class="line">    <span class="comment">// 1) 字段名</span></span><br><span class="line">    <span class="keyword">let</span> cName = sqlite3_column_name(stmt, col)</span><br><span class="line">    <span class="keyword">let</span> name = <span class="type">String</span>(<span class="type">CString</span>: cName, encoding: <span class="type">NSUTF8StringEncoding</span>)!</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2) 字段类型</span></span><br><span class="line">    <span class="keyword">let</span> type = sqlite3_column_type(stmt, col)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3) 根据类型获取字段内容</span></span><br><span class="line">    <span class="keyword">var</span> v: <span class="type">AnyObject</span>? = <span class="literal">nil</span></span><br><span class="line">    <span class="keyword">switch</span> type &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="type">SQLITE_INTEGER</span>:</span><br><span class="line">        v = <span class="type">Int</span>(sqlite3_column_int64(stmt, col))</span><br><span class="line">    <span class="keyword">case</span> <span class="type">SQLITE_FLOAT</span>:</span><br><span class="line">        v = sqlite3_column_double(stmt, col)</span><br><span class="line">    <span class="keyword">case</span> <span class="type">SQLITE3_TEXT</span>:</span><br><span class="line">        <span class="keyword">let</span> cText = <span class="type">UnsafePointer</span>&lt;<span class="type">Int8</span>&gt;(sqlite3_column_text(stmt, col))</span><br><span class="line">        v = <span class="type">String</span>(<span class="type">CString</span>: cText, encoding: <span class="type">NSUTF8StringEncoding</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="type">SQLITE_NULL</span>:</span><br><span class="line">        v = <span class="type">NSNull</span>()</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"不支持的格式"</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(name + <span class="string">"\t"</span> + <span class="type">String</span>(type) + <span class="string">"\t <span class="subst">\(v)</span> \t"</span>, appendNewline: <span class="literal">false</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\n"</span>, appendNewline: <span class="literal">false</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>抽取创建结果集代码</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 从 stmt 获取记录字典</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - parameter stmt: stmt</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - returns: 返回记录集字典</span></span><br><span class="line">private <span class="func"><span class="keyword">func</span> <span class="title">recordDict</span><span class="params">(stmt: COpaquePointer)</span></span> -&gt; [<span class="type">String</span>: <span class="type">AnyObject</span>] &#123;</span><br><span class="line">    <span class="comment">// 1&gt; 结果集列数</span></span><br><span class="line">    <span class="keyword">let</span> colCount = sqlite3_column_count(stmt)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2&gt; 遍历每一列 - 创建字典</span></span><br><span class="line">    <span class="keyword">var</span> record = [<span class="type">String</span>: <span class="type">AnyObject</span>]()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> col <span class="keyword">in</span> <span class="number">0</span>..&lt;colCount &#123;</span><br><span class="line">        <span class="comment">// 1) 字段名</span></span><br><span class="line">        <span class="keyword">let</span> cName = sqlite3_column_name(stmt, col)</span><br><span class="line">        <span class="keyword">let</span> name = <span class="type">String</span>(<span class="type">CString</span>: cName, encoding: <span class="type">NSUTF8StringEncoding</span>)!</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2) 字段类型</span></span><br><span class="line">        <span class="keyword">let</span> type = sqlite3_column_type(stmt, col)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3) 根据类型获取字段内容</span></span><br><span class="line">        <span class="keyword">var</span> v: <span class="type">AnyObject</span>? = <span class="literal">nil</span></span><br><span class="line">        <span class="keyword">switch</span> type &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="type">SQLITE_INTEGER</span>:</span><br><span class="line">            v = <span class="type">Int</span>(sqlite3_column_int64(stmt, col))</span><br><span class="line">        <span class="keyword">case</span> <span class="type">SQLITE_FLOAT</span>:</span><br><span class="line">            v = sqlite3_column_double(stmt, col)</span><br><span class="line">        <span class="keyword">case</span> <span class="type">SQLITE3_TEXT</span>:</span><br><span class="line">            <span class="keyword">let</span> cText = <span class="type">UnsafePointer</span>&lt;<span class="type">Int8</span>&gt;(sqlite3_column_text(stmt, col))</span><br><span class="line">            v = <span class="type">String</span>(<span class="type">CString</span>: cText, encoding: <span class="type">NSUTF8StringEncoding</span>)</span><br><span class="line">        <span class="keyword">case</span> <span class="type">SQLITE_NULL</span>:</span><br><span class="line">            v = <span class="type">NSNull</span>()</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"不支持的格式"</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        record[name] = v</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> record</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>重构后的代码</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 执行 SQL 返回结果集</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - parameter sql: SQL</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - returns: 字典数组</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">execRecordSet</span><span class="params">(sql: String)</span></span> -&gt; [[<span class="type">String</span>: <span class="type">AnyObject</span>]]? &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. 准备(预编译) SQL</span></span><br><span class="line">    <span class="keyword">var</span> stmt: <span class="type">COpaquePointer</span> = <span class="literal">nil</span></span><br><span class="line">    <span class="keyword">if</span> sqlite3_prepare_v2(db, sql, -<span class="number">1</span>, &amp;stmt, <span class="literal">nil</span>) != <span class="type">SQLITE_OK</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"准备 SQL 失败"</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 单步执行获取结果集内容</span></span><br><span class="line">    <span class="comment">// 2.1 结果集</span></span><br><span class="line">    <span class="keyword">var</span> recordset = [[<span class="type">String</span>: <span class="type">AnyObject</span>]]()</span><br><span class="line">    <span class="comment">// 2.2 遍历结果集</span></span><br><span class="line">    <span class="keyword">while</span> sqlite3_step(stmt) == <span class="type">SQLITE_ROW</span> &#123;</span><br><span class="line">        recordset.append(recordDict(stmt))</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 释放语句</span></span><br><span class="line">    sqlite3_finalize(stmt)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> recordset</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在 <code>Person</code> 模型中加载 <code>Person</code> 列表</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 加载 Person 对象数组</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">loadPersons</span>() -&gt; [<span class="title">Person</span>]? </span>&#123;</span><br><span class="line">    <span class="comment">// 1. 从数据库获取字典数组</span></span><br><span class="line">    guard <span class="keyword">let</span> array = <span class="type">SQLiteManager</span>.sharedManager.execRecordSet(<span class="string">"SELECT id, name, age FROM T_Person;"</span>) <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 遍历数组，字典转模型</span></span><br><span class="line">    <span class="keyword">var</span> persons = [<span class="type">Person</span>]()</span><br><span class="line">    <span class="keyword">for</span> dict <span class="keyword">in</span> array &#123;</span><br><span class="line">        persons.append(<span class="type">Person</span>(dict: dict))</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> persons</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/17/05-multi_table/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          多表操作
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/17/03-swift/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Swift 中使用 SQLite</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="04-load_data" data-title="Swift 中查询数据" data-url="http://yoursite.com/2015/09/17/04-load_data/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 cysummery
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

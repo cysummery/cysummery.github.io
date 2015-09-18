@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>多表操作 | CongYue&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="创建多表
+公司表
+
+1234CREATE TABLE &quot;T_Company&quot; (	 &quot;companyId&quot; INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,	 &quot;companyName&quot; TEXT NOT NULL);
+
+个人表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多表操作">
+<meta property="og:url" content="http://yoursite.com/2015/09/17/05-multi_table/index.html">
+<meta property="og:site_name" content="CongYue's Blog">
+<meta property="og:description" content="创建多表
+公司表
+
+1234CREATE TABLE &quot;T_Company&quot; (	 &quot;companyId&quot; INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,	 &quot;companyName&quot; TEXT NOT NULL);
+
+个人表">
+<meta property="og:updated_time" content="2015-09-18T13:13:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多表操作">
+<meta name="twitter:description" content="创建多表
+公司表
+
+1234CREATE TABLE &quot;T_Company&quot; (	 &quot;companyId&quot; INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,	 &quot;companyName&quot; TEXT NOT NULL);
+
+个人表">
+  
+    <link rel="alternative" href="/atom.xml" title="CongYue&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/smile.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">cysummery</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">专注成就品质</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/cysummery" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="/cydeveloper@163.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/JungleTian">JungleTian</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/likumb">Jun Li</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cocoachina.com/">CocoaChina</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://code4app.com/">code4app</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devdiv.com/">开发者社区</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.imooc.com/">慕课网</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">iOS 应用开发者，热爱编程，喜欢技术，标准苹果粉。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">cysummery</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/smile.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">cysummery</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">专注成就品质</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/cysummery" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="/cydeveloper@163.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-05-multi_table" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/17/05-multi_table/" class="article-date">
+  	<time datetime="2015-09-17T15:00:12.000Z" itemprop="datePublished">2015-09-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      多表操作
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sql/">sql</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="创建多表">创建多表</h2><ul>
+<li>公司表</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">"T_Company"</span> (</span><br><span class="line">	 <span class="string">"companyId"</span> <span class="built_in">INTEGER</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> PRIMARY <span class="keyword">KEY</span> AUTOINCREMENT,</span><br><span class="line">	 <span class="string">"companyName"</span> <span class="built_in">TEXT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line">);</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>个人表</li>
+</ul>
+<a id="more"></a>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">"T_Person"</span> (</span><br><span class="line">	 <span class="string">"id"</span> <span class="built_in">INTEGER</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> PRIMARY <span class="keyword">KEY</span> AUTOINCREMENT,</span><br><span class="line">	 <span class="string">"name"</span> <span class="built_in">TEXT</span>,</span><br><span class="line">	 <span class="string">"age"</span> <span class="built_in">INTEGER</span>,</span><br><span class="line">	 <span class="string">"height"</span> <span class="built_in">REAL</span>,</span><br><span class="line">	 <span class="string">"companyId"</span> <span class="built_in">INTEGER</span>,</span><br><span class="line">	<span class="keyword">CONSTRAINT</span> <span class="string">"FK_CompanyID"</span> FOREIGN <span class="keyword">KEY</span> (<span class="string">"companyId"</span>) <span class="keyword">REFERENCES</span> <span class="string">"T_Company"</span> (<span class="string">"companyId"</span>)</span><br><span class="line">);</span></span><br></pre></td></tr></table></figure>
+<h2 id="创表">创表</h2><ul>
+<li>新建 <code>db.sql</code> 文件</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建公司表</span></span><br><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> <span class="string">"T_Company"</span> (</span><br><span class="line"><span class="string">"companyId"</span> <span class="built_in">INTEGER</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> PRIMARY <span class="keyword">KEY</span> AUTOINCREMENT,</span><br><span class="line"><span class="string">"companyName"</span> <span class="built_in">TEXT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line">);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建个人表</span></span><br><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> <span class="string">"T_Person"</span> (</span><br><span class="line"><span class="string">"id"</span> <span class="built_in">INTEGER</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> PRIMARY <span class="keyword">KEY</span> AUTOINCREMENT,</span><br><span class="line"><span class="string">"name"</span> <span class="built_in">TEXT</span>,</span><br><span class="line"><span class="string">"age"</span> <span class="built_in">INTEGER</span>,</span><br><span class="line"><span class="string">"height"</span> <span class="built_in">REAL</span>,</span><br><span class="line"><span class="string">"companyId"</span> <span class="built_in">INTEGER</span>,</span><br><span class="line"><span class="keyword">CONSTRAINT</span> <span class="string">"FK_CompanyID"</span> FOREIGN <span class="keyword">KEY</span> (<span class="string">"companyId"</span>) <span class="keyword">REFERENCES</span> <span class="string">"T_Company"</span> (<span class="string">"companyId"</span>)</span><br><span class="line">);</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>将 <code>SQLiteManager.swift</code> 拖入项目</li>
+<li>修改创表函数</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 创建数据表</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// - returns: 是否成功</span></span><br><span class="line">private <span class="func"><span class="keyword">func</span> <span class="title">createTable</span><span class="params">()</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> path = <span class="type">NSBundle</span>.mainBundle().pathForResource(<span class="string">"db.sql"</span>, ofType: <span class="literal">nil</span>)!</span><br><span class="line">    <span class="keyword">let</span> sql = try! <span class="type">String</span>(contentsOfFile: path)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(sql)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> execSQL(sql)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="创建模型">创建模型</h2><ul>
+<li>公司模型</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Company</span>: <span class="title">NSObject</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> companyId: <span class="type">Int</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> companyName: <span class="type">String</span>?</span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span>(dict: [<span class="type">String</span>: <span class="type">AnyObject</span>]) &#123;</span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>()</span><br><span class="line"></span><br><span class="line">        setValuesForKeysWithDictionary(dict)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>个人模型</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>: <span class="title">NSObject</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> id: <span class="type">Int</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span>?</span><br><span class="line">    <span class="keyword">var</span> age: <span class="type">Int</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> height: <span class="type">Double</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> company: <span class="type">Company</span>?</span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span>(dict: [<span class="type">String</span>: <span class="type">AnyObject</span>]) &#123;</span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>()</span><br><span class="line"></span><br><span class="line">        setValuesForKeysWithDictionary(dict)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="搭建界面">搭建界面</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">application</span><span class="params">(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">SQLiteManager</span>.sharedManager.openDB(<span class="string">"my.db"</span>)</span><br><span class="line"></span><br><span class="line">    window = <span class="type">UIWindow</span>(frame: <span class="type">UIScreen</span>.mainScreen().bounds)</span><br><span class="line">    window?.backgroundColor = <span class="type">UIColor</span>.whiteColor()</span><br><span class="line">    window?.rootViewController = prepareViewController()</span><br><span class="line">    window?.makeKeyAndVisible()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private <span class="func"><span class="keyword">func</span> <span class="title">prepareViewController</span><span class="params">()</span></span> -&gt; <span class="type">UIViewController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> tabVC = <span class="type">UITabBarController</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> vc1 = <span class="type">PersonViewController</span>()</span><br><span class="line">    vc1.title = <span class="string">"个人"</span></span><br><span class="line">    tabVC.addChildViewController(<span class="type">UINavigationController</span>(rootViewController: vc1))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> vc2 = <span class="type">CompanyViewController</span>()</span><br><span class="line">    vc2.title = <span class="string">"公司"</span></span><br><span class="line">    tabVC.addChildViewController(<span class="type">UINavigationController</span>(rootViewController: vc2))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> tabVC</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="公司数据">公司数据</h2><h3 id="新增">新增</h3><ul>
+<li>在模型中新增方法</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 新增公司</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">insertCompany</span><span class="params">()</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="built_in">assert</span>(companyName != <span class="literal">nil</span>, <span class="string">"公司名称不能为空"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> sql = <span class="string">"INSERT INTO T_Company (companyName) VALUES '<span class="subst">\(companyName!)</span>';"</span></span><br><span class="line">    <span class="built_in">print</span>(sql)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="type">SQLiteManager</span>.sharedManager.execSQL(sql)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>定义<code>公司</code>数组属性</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lazy <span class="keyword">var</span> companies = [<span class="type">Company</span>]()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在 <code>viewDidLoad</code> 中设置右侧按钮</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line"></span><br><span class="line">    tableView.registerClass(<span class="type">UITableViewCell</span>.<span class="keyword">self</span>, forCellReuseIdentifier: <span class="type">HMCompanyViewCell</span>)</span><br><span class="line">    navigationItem.rightBarButtonItem = <span class="type">UIBarButtonItem</span>(barButtonSystemItem: <span class="type">UIBarButtonSystemItem</span>.<span class="type">Add</span>, target: <span class="keyword">self</span>, action: <span class="string">"addCompany"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实现 <code>addCompany</code> 函数</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">addCompany</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> alert = <span class="type">UIAlertController</span>(title: <span class="string">"输入"</span>, message: <span class="string">"公司名称"</span>, preferredStyle: <span class="type">UIAlertControllerStyle</span>.<span class="type">Alert</span>)</span><br><span class="line">    alert.addTextFieldWithConfigurationHandler(<span class="literal">nil</span>)</span><br><span class="line">    alert.addAction(<span class="type">UIAlertAction</span>(title: <span class="string">"取消"</span>, style: <span class="type">UIAlertActionStyle</span>.<span class="type">Cancel</span>, handler: &#123; (<span class="number">_</span>) <span class="keyword">in</span></span><br><span class="line">        <span class="keyword">self</span>.dismissViewControllerAnimated(<span class="literal">true</span>, completion: <span class="literal">nil</span>)</span><br><span class="line">    &#125;))</span><br><span class="line">    alert.addAction(<span class="type">UIAlertAction</span>(title: <span class="string">"确定"</span>, style: <span class="type">UIAlertActionStyle</span>.<span class="type">Default</span>, handler: &#123; (<span class="number">_</span>) <span class="keyword">in</span></span><br><span class="line"></span><br><span class="line">        guard <span class="keyword">let</span> companyName = alert.textFields?[<span class="number">0</span>].text <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> company = <span class="type">Company</span>(dict: [<span class="string">"companyName"</span>: companyName])</span><br><span class="line">        <span class="keyword">if</span> company.insertCompany() &#123;</span><br><span class="line">            <span class="keyword">self</span>.companies.append(company)</span><br><span class="line">            <span class="keyword">self</span>.tableView.reloadData()</span><br><span class="line">            <span class="keyword">self</span>.dismissViewControllerAnimated(<span class="literal">true</span>, completion: <span class="literal">nil</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"error"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;))</span><br><span class="line">    presentViewController(alert, animated: <span class="literal">true</span>, completion: <span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>数据源方法</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - Table view data source</span></span><br><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(tableView: UITableView, numberOfRowsInSection section: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> companies.<span class="built_in">count</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)</span></span> -&gt; <span class="type">UITableViewCell</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> cell = tableView.dequeueReusableCellWithIdentifier(<span class="type">HMCompanyViewCell</span>, forIndexPath: indexPath)</span><br><span class="line"></span><br><span class="line">    cell.textLabel?.text = companies[indexPath.row].companyName</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> cell</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在模型中实现加载数据函数</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">loadCompany</span>() -&gt; [<span class="title">Company</span>] </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> sql = <span class="string">"SELECT companyId, companyName FROM T_Company;"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> companies = [<span class="type">Company</span>]()</span><br><span class="line">    guard <span class="keyword">let</span> array = <span class="type">SQLiteManager</span>.sharedManager.execRecordSet(sql) <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> companies</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> dict <span class="keyword">in</span> array &#123;</span><br><span class="line">        companies.append(<span class="type">Company</span>(dict: dict))</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> companies</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改 <code>viewDidLoad()</code></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line"></span><br><span class="line">    tableView.registerClass(<span class="type">UITableViewCell</span>.<span class="keyword">self</span>, forCellReuseIdentifier: <span class="type">HMCompanyViewCell</span>)</span><br><span class="line">    navigationItem.rightBarButtonItem = <span class="type">UIBarButtonItem</span>(barButtonSystemItem: <span class="type">UIBarButtonSystemItem</span>.<span class="type">Add</span>, target: <span class="keyword">self</span>, action: <span class="string">"addCompany"</span>)</span><br><span class="line"></span><br><span class="line">    companies = <span class="type">Company</span>.loadCompany()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/17/05-prepare_update/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          预编译更新
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/17/04-load_data/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Swift 中查询数据</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="05-multi_table" data-title="多表操作" data-url="http://yoursite.com/2015/09/17/05-multi_table/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 cysummery
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
