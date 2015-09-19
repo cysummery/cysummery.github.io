@@ -3,45 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>SQLite核心对象 | CongYue&#39;s Blog</title>
+  <title>Archives: 2015/5 | CongYue&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="核心对象 &amp;amp; 核心接口核心对象
-database_connection
-
-由 sqlite3_open 函数创建并返回
-在使用其他 SQLite 接口函数之前，必须先获得 database_connnection 对象
-
-
-prepared_statement
-
-可以简单的将它视为编译后的SQL语句">
-<meta property="og:type" content="article">
-<meta property="og:title" content="SQLite核心对象">
-<meta property="og:url" content="http://yoursite.com/2015/09/17/02-core_object/index.html">
+  <meta name="description" content="iOS Developer">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CongYue's Blog">
+<meta property="og:url" content="http://yoursite.com/archives/2015/05/index.html">
 <meta property="og:site_name" content="CongYue's Blog">
-<meta property="og:description" content="核心对象 &amp;amp; 核心接口核心对象
-database_connection
-
-由 sqlite3_open 函数创建并返回
-在使用其他 SQLite 接口函数之前，必须先获得 database_connnection 对象
-
-
-prepared_statement
-
-可以简单的将它视为编译后的SQL语句">
-<meta property="og:updated_time" content="2015-09-18T13:11:34.000Z">
+<meta property="og:description" content="iOS Developer">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SQLite核心对象">
-<meta name="twitter:description" content="核心对象 &amp;amp; 核心接口核心对象
-database_connection
-
-由 sqlite3_open 函数创建并返回
-在使用其他 SQLite 接口函数之前，必须先获得 database_connnection 对象
-
-
-prepared_statement
-
-可以简单的将它视为编译后的SQL语句">
+<meta name="twitter:title" content="CongYue's Blog">
+<meta name="twitter:description" content="iOS Developer">
   
     <link rel="alternative" href="/atom.xml" title="CongYue&#39;s Blog" type="application/atom+xml">
   
@@ -214,178 +186,84 @@ prepared_statement
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-02-core_object" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2015/09/17/02-core_object/" class="article-date">
-  	<time datetime="2015-09-17T15:00:12.000Z" itemprop="datePublished">2015-09-17</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2015" class="archive-year">2015</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2015/05/30/04-load_data/" class="archive-article-date">
+  	<time datetime="2015-05-30T11:22:12.000Z" itemprop="datePublished">5月 30</time>
 </a>
-    </div>
+        </div>
+    	 
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      SQLite核心对象
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2015/05/30/04-load_data/">Swift 中查询数据</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sql/">sql</a></li></ul>
 	</div>
 
-        
+          
 
+        </div>
         <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="核心对象_&amp;_核心接口">核心对象 &amp; 核心接口</h1><h2 id="核心对象">核心对象</h2><ol>
-<li><p><code>database_connection</code></p>
-<ul>
-<li>由 <code>sqlite3_open</code> 函数创建并返回</li>
-<li>在使用其他 <code>SQLite</code> 接口函数之前，必须先获得 <code>database_connnection</code> 对象</li>
-</ul>
-</li>
-<li><p><code>prepared_statement</code></p>
-<ul>
-<li>可以简单的将它视为编译后的SQL语句</li>
-</ul>
-</li>
-</ol>
-<a id="more"></a>
-<h2 id="核心接口">核心接口</h2><ol>
-<li><p><code>sqlite3_open</code></p>
-<ul>
-<li>可以打开已经存在的数据库文件</li>
-<li>如果数据库不存在，可以创建新的数据库文件</li>
-<li>返回的 <code>database_connection</code> 对象是其他 <code>SQLite APIs</code> 的句柄参数</li>
-<li>可以在多个线程之间共享该对象指针</li>
-</ul>
-</li>
-<li><p><code>sqlite3_prepare</code></p>
-<ul>
-<li>将 <code>SQL</code> 文本转换为 <code>prepared_statement</code> 对象</li>
-<li>不会<code>执行</code>指定的 <code>SQL</code> 语句</li>
-<li>只是将 <code>SQL</code> 文本初始化为<code>待</code>执行的状态</li>
-</ul>
-</li>
-<li><p><code>sqlite3_step</code></p>
-<ul>
-<li>执行一次 <code>sqlite3_prepare</code> 函数返回的 <code>prepared_statement</code> 对象</li>
-<li>执行完该函数后，<code>prepared_statement</code> 对象的内部指针将指向其返回结果集的第一行</li>
-<li>如果要获得后续的数据行，则需要不断地调用该函数，直到所有的数据行遍历完毕</li>
-<li>对于 <code>INSERT</code>、<code>UPDATE</code> 和 <code>DELETE</code> 等 <code>DML</code> 语句，执行一次即可完成</li>
-</ul>
-</li>
-<li><p><code>sqlite3_column</code></p>
-<ul>
-<li>用于获取当前行指定列的数据</li>
-<li>以下函数分别对应不同的数据类型<ul>
-<li><code>sqlite3_column_blob</code></li>
-<li><code>sqlite3_column_bytes</code></li>
-<li><code>sqlite3_column_bytes16</code></li>
-<li><code>sqlite3_column_double</code></li>
-<li><code>sqlite3_column_int</code></li>
-<li><code>sqlite3_column_int64</code></li>
-<li><code>sqlite3_column_text</code></li>
-<li><code>sqlite3_column_text16</code></li>
-<li><code>sqlite3_column_type</code></li>
-<li><code>sqlite3_column_value</code></li>
-<li><code>sqlite3_column_count</code><ul>
-<li>用于获取当前结果集中的字段数量</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><code>sqlite3_finalize</code></p>
-<ul>
-<li>销毁 <code>prepared_statement</code> 对象，否则会造成内存泄露</li>
-</ul>
-</li>
-<li><p><code>sqlite3_close</code></p>
-<ul>
-<li>关闭之前打开的 <code>database_connection</code> 对象</li>
-<li>所有和该对象相关的 <code>prepared_statements</code> 对象都必须在此之前被销毁</li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-    
+    </header>
   </div>
+</article>
   
     
-<nav id="article-nav">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2015/05/23/03-swift/" class="archive-article-date">
+  	<time datetime="2015-05-23T12:56:31.000Z" itemprop="datePublished">5月 23</time>
+</a>
+        </div>
+    	 
   
-    <a href="/2015/09/17/03-swift/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Swift 中使用 SQLite
-        
-      </div>
-    </a>
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2015/05/23/03-swift/">Swift 中使用 SQLite</a>
+    </h1>
   
-  
-</nav>
 
-  
-</article>
-
-
-<div class="share">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到：</span>
-		<a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sql/">sql</a></li></ul>
 	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
 
+          
 
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
 
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="02-core_object" data-title="SQLite核心对象" data-url="http://yoursite.com/2015/09/17/02-core_object/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
+    
 
 </div>
       <footer id="footer">
@@ -411,8 +289,8 @@ prepared_statement
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false

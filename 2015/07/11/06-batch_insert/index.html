@@ -3,39 +3,36 @@
 <head>
   <meta charset="utf-8">
   
-  <title>多线程 | CongYue&#39;s Blog</title>
+  <title>批量插入 | CongYue&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="定义队列
+  <meta name="description" content="在 SQLite 中如果要批量插入数据，通常需要引入 事务的概念
 
-12/// 串行队列private var queue = dispatch_queue_create(&quot;com.itheima.dbqueue&quot;, DISPATCH_QUEUE_SERIAL)
-
-注意：SQLite 数据库不允许同时并发写入数据，如果用多线程，也必须使用串行队列进行操作
-
-
-队列执行">
+事务
+在准备做大规模数据操作前，首先开启一个事务，保存操作前的数据库的状态
+开始数据操作
+如果数据操作成功，提交事务，让数据库更新到数据操作后的状态
+如果数据操作失败，回滚事务，让数据库还原到操作前的状态">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多线程">
-<meta property="og:url" content="http://yoursite.com/2015/09/17/08-multi_thread/index.html">
+<meta property="og:title" content="批量插入">
+<meta property="og:url" content="http://yoursite.com/2015/07/11/06-batch_insert/index.html">
 <meta property="og:site_name" content="CongYue's Blog">
-<meta property="og:description" content="定义队列
+<meta property="og:description" content="在 SQLite 中如果要批量插入数据，通常需要引入 事务的概念
 
-12/// 串行队列private var queue = dispatch_queue_create(&quot;com.itheima.dbqueue&quot;, DISPATCH_QUEUE_SERIAL)
-
-注意：SQLite 数据库不允许同时并发写入数据，如果用多线程，也必须使用串行队列进行操作
-
-
-队列执行">
-<meta property="og:updated_time" content="2015-09-18T13:15:16.000Z">
+事务
+在准备做大规模数据操作前，首先开启一个事务，保存操作前的数据库的状态
+开始数据操作
+如果数据操作成功，提交事务，让数据库更新到数据操作后的状态
+如果数据操作失败，回滚事务，让数据库还原到操作前的状态">
+<meta property="og:updated_time" content="2015-09-19T13:58:45.697Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="多线程">
-<meta name="twitter:description" content="定义队列
+<meta name="twitter:title" content="批量插入">
+<meta name="twitter:description" content="在 SQLite 中如果要批量插入数据，通常需要引入 事务的概念
 
-12/// 串行队列private var queue = dispatch_queue_create(&quot;com.itheima.dbqueue&quot;, DISPATCH_QUEUE_SERIAL)
-
-注意：SQLite 数据库不允许同时并发写入数据，如果用多线程，也必须使用串行队列进行操作
-
-
-队列执行">
+事务
+在准备做大规模数据操作前，首先开启一个事务，保存操作前的数据库的状态
+开始数据操作
+如果数据操作成功，提交事务，让数据库更新到数据操作后的状态
+如果数据操作失败，回滚事务，让数据库还原到操作前的状态">
   
     <link rel="alternative" href="/atom.xml" title="CongYue&#39;s Blog" type="application/atom+xml">
   
@@ -208,11 +205,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-08-multi_thread" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-06-batch_insert" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/09/17/08-multi_thread/" class="article-date">
-  	<time datetime="2015-09-17T15:00:12.000Z" itemprop="datePublished">2015-09-17</time>
+      <a href="/2015/07/11/06-batch_insert/" class="article-date">
+  	<time datetime="2015-07-11T06:42:25.000Z" itemprop="datePublished">2015-07-11</time>
 </a>
     </div>
   
@@ -225,7 +222,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      多线程
+      批量插入
     </h1>
   
 
@@ -245,22 +242,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>定义队列</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 串行队列</span></span><br><span class="line">private <span class="keyword">var</span> queue = dispatch_queue_create(<span class="string">"com.itheima.dbqueue"</span>, <span class="type">DISPATCH_QUEUE_SERIAL</span>)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：SQLite 数据库不允许同时并发写入数据，如果用多线程，也必须使用串行队列进行操作</p>
+        <blockquote>
+<p>在 SQLite 中如果要批量插入数据，通常需要引入 <code>事务的概念</code></p>
 </blockquote>
-<ul>
-<li>队列执行</li>
+<h2 id="事务">事务</h2><ul>
+<li>在准备做<code>大规模数据操作前</code>，首先开启一个事务，保存操作前的数据库的状态</li>
+<li>开始数据操作</li>
+<li>如果数据操作成功，<code>提交</code>事务，让数据库更新到数据操作后的状态</li>
+<li>如果数据操作失败，<code>回滚</code>事务，让数据库还原到操作前的状态</li>
 </ul>
 <a id="more"></a>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 队列更新</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">queueUpdate</span><span class="params">(action: <span class="params">(manager: SQLiteManager)</span></span></span>-&gt;()) &#123;</span><br><span class="line">    dispatch_async(queue) &#123;</span><br><span class="line">        <span class="comment">// 1. 开启事务</span></span><br><span class="line">        <span class="keyword">self</span>.beginTransaction()</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2. 执行闭包</span></span><br><span class="line">        action(manager: <span class="keyword">self</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 提交事务</span></span><br><span class="line">        <span class="keyword">self</span>.commitTransaction()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>测试后台更新</li>
+<li>事务处理函数</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">demoQueue</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> start = <span class="type">CFAbsoluteTimeGetCurrent</span>()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"开始"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> sql = <span class="string">"INSERT INTO T_Person (name, age, height, title) VALUES (?, ?, ?, ?);"</span></span><br><span class="line"></span><br><span class="line">    <span class="type">SQLiteManager</span>.sharedManager.queueUpdate &#123; (manager) -&gt; () <span class="keyword">in</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;<span class="number">10000</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> !manager.prepareUpdate(sql, args: <span class="string">"张三 <span class="subst">\(i)</span>"</span>, <span class="number">18</span>, <span class="number">1.7</span>, <span class="string">"manager"</span>) &#123;</span><br><span class="line">                manager.rollbackTransaction()</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">print</span>(<span class="type">NSThread</span>.currentThread())</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"结束 <span class="subst">\(CFAbsoluteTimeGetCurrent()</span> - start)"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 开启事务</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">beginTransaction</span><span class="params">()</span></span> &#123;</span><br><span class="line">    execSQL(<span class="string">"BEGIN TRANSACTION;"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 回滚事务</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">rollbackTransaction</span><span class="params">()</span></span> &#123;</span><br><span class="line">    execSQL(<span class="string">"ROLLBACK TRANSACTION;"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 提交事务</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">commitTransaction</span><span class="params">()</span></span> &#123;</span><br><span class="line">    execSQL(<span class="string">"COMMIT TRANSACTION;"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>利用预编译更新批量查新</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">batchUpdate</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> start = <span class="type">CFAbsoluteTimeGetCurrent</span>()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"开始"</span>)</span><br><span class="line">    <span class="comment">// 1. 开启事务</span></span><br><span class="line">    <span class="type">SQLiteManager</span>.sharedManager.beginTransaction()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 准备 sql</span></span><br><span class="line">    <span class="keyword">let</span> sql = <span class="string">"INSERT INTO T_Person (name, age, height, title) VALUES (?, ?, ?, ?);"</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 循环插入数据</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;<span class="number">10000</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> !<span class="type">SQLiteManager</span>.sharedManager.prepareUpdate(sql, args: <span class="string">"张三 <span class="subst">\(i)</span>"</span>, <span class="number">18</span>, <span class="number">1.7</span>, <span class="string">"manager"</span>) &#123;</span><br><span class="line">            <span class="type">SQLiteManager</span>.sharedManager.rollbackTransaction()</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 模拟错误</span></span><br><span class="line">        <span class="keyword">if</span> i == <span class="number">9999</span> &#123;</span><br><span class="line">            <span class="type">SQLiteManager</span>.sharedManager.rollbackTransaction()</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 4. 提交事务</span></span><br><span class="line">    <span class="type">SQLiteManager</span>.sharedManager.commitTransaction()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"结束 <span class="subst">\(CFAbsoluteTimeGetCurrent()</span> - start)"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>测试结果 0.1s 比开启事务依次执行 SQL 速度要快！</p>
+</blockquote>
 
       
     </div>
@@ -270,18 +272,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/09/17/01-common_sql/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/07/27/07-fmdb/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          常用SQL语句
+          FMDB
         
       </div>
     </a>
   
   
-    <a href="/2015/09/17/07-fmdb/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">FMDB</div>
+    <a href="/2015/06/26/05-prepare_update/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">预编译更新</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -310,7 +312,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="08-multi_thread" data-title="多线程" data-url="http://yoursite.com/2015/09/17/08-multi_thread/"></div>
+	<div class="ds-thread" data-thread-key="06-batch_insert" data-title="批量插入" data-url="http://yoursite.com/2015/07/11/06-batch_insert/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
