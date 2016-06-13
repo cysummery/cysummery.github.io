@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="定义队列
 
-12/// 串行队列private var queue = dispatch_queue_create(&quot;com.itheima.dbqueue&quot;, DISPATCH_QUEUE_SERIAL)
+12/// 串行队列private var queue = dispatch_queue_create(&quot;com.test.dbqueue&quot;, DISPATCH_QUEUE_SERIAL)
 
 注意：SQLite 数据库不允许同时并发写入数据，如果用多线程，也必须使用串行队列进行操作
 
@@ -19,18 +19,18 @@
 <meta property="og:site_name" content="CongYue's Blog">
 <meta property="og:description" content="定义队列
 
-12/// 串行队列private var queue = dispatch_queue_create(&quot;com.itheima.dbqueue&quot;, DISPATCH_QUEUE_SERIAL)
+12/// 串行队列private var queue = dispatch_queue_create(&quot;com.test.dbqueue&quot;, DISPATCH_QUEUE_SERIAL)
 
 注意：SQLite 数据库不允许同时并发写入数据，如果用多线程，也必须使用串行队列进行操作
 
 
 队列执行">
-<meta property="og:updated_time" content="2015-09-19T13:59:30.469Z">
+<meta property="og:updated_time" content="2016-06-13T15:07:59.675Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多线程">
 <meta name="twitter:description" content="定义队列
 
-12/// 串行队列private var queue = dispatch_queue_create(&quot;com.itheima.dbqueue&quot;, DISPATCH_QUEUE_SERIAL)
+12/// 串行队列private var queue = dispatch_queue_create(&quot;com.test.dbqueue&quot;, DISPATCH_QUEUE_SERIAL)
 
 注意：SQLite 数据库不允许同时并发写入数据，如果用多线程，也必须使用串行队列进行操作
 
@@ -248,7 +248,7 @@
         <ul>
 <li>定义队列</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 串行队列</span></span><br><span class="line">private <span class="keyword">var</span> queue = dispatch_queue_create(<span class="string">"com.itheima.dbqueue"</span>, <span class="type">DISPATCH_QUEUE_SERIAL</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 串行队列</span></span><br><span class="line">private <span class="keyword">var</span> queue = dispatch_queue_create(<span class="string">"com.test.dbqueue"</span>, <span class="type">DISPATCH_QUEUE_SERIAL</span>)</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>注意：SQLite 数据库不允许同时并发写入数据，如果用多线程，也必须使用串行队列进行操作</p>
 </blockquote>
@@ -326,7 +326,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2015 cysummery
+    		&copy; 2016 cysummery
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
